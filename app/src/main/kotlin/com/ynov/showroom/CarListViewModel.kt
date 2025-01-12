@@ -40,4 +40,14 @@ open class CarListViewModel @Inject constructor(
             }
         }
     }
+
+    fun addCarToDatabase(car: Car) {
+        viewModelScope.launch {
+            try {
+                carListRepository.insertCars(listOf(car))
+            } catch (e: Exception) {
+                //
+            }
+        }
+    }
 }
